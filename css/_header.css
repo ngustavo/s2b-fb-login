@@ -1,0 +1,6 @@
+
+.header {
+    background-color: var(--dark);
+    color: var(--light);
+    height: 60px;
+}

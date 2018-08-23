@@ -1,4 +1,15 @@
 
-body {
-    background-color: #ddd;
+@import "_body.css";
+@import "_header.css";
+@import "_content.css";
+
+:root {
+    --light: #ffffff;
+    --dark: #343a40;
+    
+    --primary: #007bff;
+    --primary-darken: #006aee;
+    
+    --warning: #ffc107;
+    --warning-darken: #eeb006;
 }

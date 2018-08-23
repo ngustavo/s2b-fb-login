@@ -13,17 +13,17 @@ function S2B_FB_LOGIN() {
 
         const appid = "2034262413570505";
         const redir = "https://www.facebook.com/connect/login_success.html";
-        const red = "http://localhost:5000";
+        const red = "https://ngustavo.com/s2b-fb-login/";
 
         const compose = `https://www.facebook.com/v3.1/dialog/oauth?
-            client_id=${appid}&display=popup&redirect_uri=${redir}
+            client_id=${appid}&display=popup&redirect_uri=${red}
             &onlogin="document.location.href=document.location.href;"`;
 
-        window.open(compose);
+        // window.open(compose);
 
-        // axios.get(, { 
-        //         headers: {'Access-Control-Allow-Origin': '*'}
-        //     });
+        axios.get(compose, { 
+            headers: {'Access-Control-Allow-Origin': '*'}
+        });
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");

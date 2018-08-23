@@ -18,11 +18,11 @@ function S2B_FB_LOGIN() {
         const compose = `https://www.facebook.com/v3.1/dialog/oauth?
             client_id=${appid}&redirect_uri=${red}"`;
 
-        // window.open(compose);
+        window.open(compose, "_blank");
 
-        axios.get(compose, { 
-            headers: {'Access-Control-Allow-Origin': '*'}
-        });
+        // axios.get(compose, { 
+        //     headers: {'Access-Control-Allow-Origin': '*'}
+        // });
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");

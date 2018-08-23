@@ -14,12 +14,25 @@ body {
     height: 100%;
     color: var(--black);
 }
-
+.text {
+    display: inline-block;
+}
 .text--light {
     color: var(--light);
 }
-.text--warning {
-    color: var(--warning-darken)
+.text--success {
+    color: var(--success-darken);
+}
+.text--danger {
+    color: var(--danger-darken);
+}
+.text--heavy {
+    font-size: 64px;
+}
+.text--response {
+    color: #999999;
+    background-color: #eee;
+    font-family: monospace;
 }
 
 .btn {
@@ -29,7 +42,6 @@ body {
     color: var(--light);
     border-radius: 5px;
 }
-
 .btn:hover {
     cursor: pointer;
     background-color: var(--primary-darken);
@@ -39,7 +51,13 @@ body {
     background-color: var(--warning);
     color: var(--dark);
 }
-
 .btn--warning:hover {
     background-color: var(--warning-darken);
+}
+
+.btn--danger {
+    background-color: var(--danger);
+}
+.btn--danger:hover {
+    background-color: var(--danger-darken);
 }

@@ -10,6 +10,16 @@
     --primary: #007bff;
     --primary-darken: #006aee;
     
+    --success: #28a745;
+    --success-darken: #179834;
+
     --warning: #ffc107;
     --warning-darken: #eeb006;
+
+    --danger: #dc3545;
+    --danger-darken: #cb2434;
+}
+
+.hide {
+    display: none;
 }

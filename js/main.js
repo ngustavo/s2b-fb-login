@@ -55,11 +55,8 @@ function S2B_FB_LOGIN() {
 
     const getUser = token => {
         const url = `https://graph.facebook.com/me?fields=email,first_name,last_name&access_token=${token}`;
-        fetch(url, {
-            method: "GET",
-            mode: "cors"
-        })
-        .then(data => console.log(data))
+        fetch(url)
+        .then(data => console.log(data.json()))
         .catch(err => console.log(err));
 };
     

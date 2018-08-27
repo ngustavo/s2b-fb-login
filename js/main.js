@@ -19,7 +19,7 @@ function S2B_FB_LOGIN() {
 
         const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
 
-        window.location.href = URL;
+        //window.location.href = URL;
 
         fetch(URL).then(data => console.log(data));
 

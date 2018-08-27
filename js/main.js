@@ -33,8 +33,11 @@ function S2B_FB_LOGIN() {
     };
     
     const loadHandler = () => {
-        const url = new URL(document.location);
-        if(url.href.includes("token=")){
+        const url = new URL(window.location);
+        if (url.href.includes("?#")){
+            const fixedURL = url.href.replace("?#", "?");
+            window.location.href = fixedURL;
+        } else if(url.href.includes("access_token=")){
             const params = url.searchParams;
             const token = params.get("token");
             console.log("token:", token);

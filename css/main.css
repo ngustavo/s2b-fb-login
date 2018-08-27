@@ -53,6 +53,8 @@ a {
     color: #999999;
     background-color: #eee;
     font-family: monospace;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .btn {

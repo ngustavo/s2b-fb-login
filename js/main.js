@@ -14,14 +14,19 @@ function S2B_FB_LOGIN() {
         const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
         const appid = "2034262413570505";
         const scopes = "email";
-        const type = "token";
+        const type = "code,token";
         const uri = "https://ngustavo.com/s2b-fb-login/";
 
         const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
 
         //window.location.href = URL;
 
-        fetch(URL).then(data => console.log(data));
+        const request = new Request(URL, {
+            method: "GET",
+            mode: "no-cors"
+        });
+
+        fetch(request).then(data => console.log(data));
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");

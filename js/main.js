@@ -11,20 +11,16 @@ function S2B_FB_LOGIN() {
 
     const loginHandler = () => {
 
+        const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
         const appid = "2034262413570505";
-        const r1 = "https://www.facebook.com/connect/login_success.html";
-        const r2 = "https://ngustavo.com/s2b-fb-login/";
-        const r3 = "https://ngustavo.com/";
-        const r4 = "https://ngustavo.com/s2b-fb-login/redirect/";
+        const scopes = "email,";
+        const uri = "https://ngustavo.com/s2b-fb-login/";
 
-        const uri = encodeURI(r2);
-        const compose = `https://www.facebook.com/v3.1/dialog/oauth?client_id=${appid}&redirect_uri=${uri}`;
+        const URL = `${fb}?client_id=${appid}&scopes=${scopes}&redirect_uri=${uri}`;
 
-        window.open(compose, "_blank");
-
-        // axios.get(compose, { 
-        //     headers: {'Access-Control-Allow-Origin': '*'}
-        // });
+        axios.get(URL, { 
+            headers: {'Access-Control-Allow-Origin': '*'}
+        });
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");

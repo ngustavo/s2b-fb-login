@@ -20,7 +20,7 @@ function S2B_FB_LOGIN() {
 
         axios.get(URL, { 
             headers: {'Access-Control-Allow-Origin': '*'}
-        });
+        }).then(data => console.log(data));
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");

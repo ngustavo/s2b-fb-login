@@ -24,17 +24,16 @@ function S2B_FB_LOGIN() {
     };
     
     const loadHandler = () => {
-        console.log("here");
         const url = new URL(window.location);
-        if (url.href.includes("/#") || url.href.includes("/?#")){
+        if (url.href.includes("/#") || url.href.includes("/?#")){ // sometimes the url has a weird #
             const fixedURL = url.href.replace("/#", "/?");
             const finalURL = fixedURL.replace("/?#", "/?");
-            console.log("there", finalURL);
             window.location.href = finalURL;
-        } else if(url.href.includes("access_token=")){
+        } else if(url.href.includes("access_token=")){ // if it doesn't then get that token
             const params = url.searchParams;
             const token = params.get("access_token");
-            console.log("token:", token);
+            initial.classList.toggle("hide");
+            signed.classList.toggle("hide");
             getUser(token);
         }
     };
@@ -51,10 +50,12 @@ function S2B_FB_LOGIN() {
         const user = {};
         user.firstName = data.first_name;
         user.lastName = data.last_name;
-        user.phone = data.phone || data.id;
-        user.email = data.email;
-        response.innerHTML = `firstName, lastName, phone, email
-                        <br>${user.firstName}, ${user.lastName}, ${user.phone}, ${user.email}`;
+        if(data.email) // check if you got their email
+            if(data.email.includes("@")) // check if it's an actual email
+                user.email = data.email;
+            else // if not, it's probably a phone number (check the API)
+                user.phone = user.email;
+        response.innerHTML = `firstName, lastName, phone, email <br>${user.firstName}, ${user.lastName}, ${user.phone}, ${user.email}`;
     };
     
     window.addEventListener("load", loadHandler);

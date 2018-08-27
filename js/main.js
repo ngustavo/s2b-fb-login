@@ -51,7 +51,7 @@ function S2B_FB_LOGIN() {
         signed.classList.toggle("hide");
     };
     
-    document.addEventListener("load", loadHandler);
+    window.addEventListener("load", loadHandler);
     login.addEventListener("click", loginHandler);
     logout.addEventListener("click", logoutHandler);
 }

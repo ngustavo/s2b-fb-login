@@ -13,7 +13,7 @@ function S2B_FB_LOGIN() {
 
         const appid = "2034262413570505";
         const redir = "https://www.facebook.com/connect/login_success.html";
-        const red = "https://ngustavo.com/s2b-fb-login/redirect/";
+        const red = "https://ngustavo.com/s2b-fb-login/";
 
         const compose = `https://www.facebook.com/v3.1/dialog/oauth?
             client_id=${appid}&redirect_uri=${red}"`;

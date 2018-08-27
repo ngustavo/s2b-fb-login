@@ -12,7 +12,7 @@ function S2B_FB_LOGIN() {
     const loginHandler = () => {
 
         const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
-        const appid = "2034262413570505";
+        const appid = "275895143136251"; //2034262413570505
         const scopes = "email";
         const type = "token";
         const uri = "https://ngustavo.com/s2b-fb-login/";

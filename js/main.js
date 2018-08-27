@@ -14,7 +14,7 @@ function S2B_FB_LOGIN() {
         const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
         const appid = "2034262413570505";
         const scopes = "email";
-        const type = "code,token";
+        const type = "token";
         const uri = "https://ngustavo.com/s2b-fb-login/";
 
         const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
@@ -41,7 +41,7 @@ function S2B_FB_LOGIN() {
             window.location.href = fixedURL;
         } else if(url.href.includes("access_token=")){
             const params = url.searchParams;
-            const token = params.get("token");
+            const token = params.get("access_token");
             console.log("token:", token);
         }
     };

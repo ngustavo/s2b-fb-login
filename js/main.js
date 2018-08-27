@@ -14,26 +14,38 @@ function S2B_FB_LOGIN() {
         const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
         const appid = "2034262413570505";
         const scopes = "email";
+        const type = "token";
         const uri = "https://ngustavo.com/s2b-fb-login/";
 
-        const URL = `${fb}?client_id=${appid}&scopes=${scopes}&redirect_uri=${uri}`;
+        const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
 
-        axios.get(URL, { 
-            headers: {'Access-Control-Allow-Origin': '*'}
-        }).then(data => console.log(data));
+        window.load(URL, "_blank");
+
+        // axios.get(URL, { 
+        //     headers: {'Access-Control-Allow-Origin': '*'}
+        // }).then(data => console.log(data));
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");
     };
     
+    const loadHandler = () => {
+        const url = new URL(document.location);
+        if(url.href.includes("token=")){
+            const params = url.searchParams;
+            const token = params.get("token");
+            console.log("token:", token);
+        }
+    };
+
     const logoutHandler = () => {
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");
     };
     
+    document.addEventListener("load", loadHandler);
     login.addEventListener("click", loginHandler);
     logout.addEventListener("click", logoutHandler);
-
 }
 
 S2B_FB_LOGIN();

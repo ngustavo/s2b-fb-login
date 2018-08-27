@@ -19,14 +19,14 @@ function S2B_FB_LOGIN() {
 
         const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
 
-        //window.location.href = URL;
+        window.location.href = URL;
 
-        const request = new Request(URL, {
-            method: "GET",
-            mode: "no-cors"
-        });
+        // const request = new Request(URL, {
+        //     method: "GET",
+        //     mode: "no-cors"
+        // });
 
-        fetch(request).then(data => console.log(data));
+        // fetch(request).then(data => console.log(data));
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");

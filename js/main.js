@@ -17,9 +17,9 @@ function S2B_FB_LOGIN() {
         const type = "token";
         const uri = "https://ngustavo.com/s2b-fb-login/";
 
-        const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
+        const url = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
 
-        window.location.href = URL;
+        window.location.href = url;
 
         // const request = new Request(URL, {
         //     method: "GET",
@@ -43,12 +43,18 @@ function S2B_FB_LOGIN() {
             const params = url.searchParams;
             const token = params.get("access_token");
             console.log("token:", token);
+            getUser(token);
         }
     };
 
     const logoutHandler = () => {
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");
+    };
+
+    const getUser = token => {
+        const url = `https://graph.facebook.com/me?fields=email,first_name,last_name&access_token=${token}`;
+        fetch(url).then(data => console.log(data));
     };
     
     window.addEventListener("load", loadHandler);

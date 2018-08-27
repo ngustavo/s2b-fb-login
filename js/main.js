@@ -19,7 +19,7 @@ function S2B_FB_LOGIN() {
 
         const URL = `${fb}?client_id=${appid}&scopes=${scopes}&response_type=${type}&redirect_uri=${uri}`;
 
-        window.load(URL, "_blank");
+        window.open(URL, "_blank");
 
         // axios.get(URL, { 
         //     headers: {'Access-Control-Allow-Origin': '*'}

@@ -18,7 +18,7 @@ function S2B_FB_LOGIN() {
         const r4 = "https://ngustavo.com/s2b-fb-login/redirect/";
 
         const uri = encodeURI(r2);
-        const compose = `https://www.facebook.com/v3.1/dialog/oauth?client_id=${appid}&redirect_uri=${uri}"`;
+        const compose = `https://www.facebook.com/v3.1/dialog/oauth?client_id=${appid}&redirect_uri=${uri}`;
 
         window.open(compose, "_blank");
 

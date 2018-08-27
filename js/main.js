@@ -13,7 +13,7 @@ function S2B_FB_LOGIN() {
 
         const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
         const appid = "2034262413570505";
-        const scopes = "email,";
+        const scopes = "email";
         const uri = "https://ngustavo.com/s2b-fb-login/";
 
         const URL = `${fb}?client_id=${appid}&scopes=${scopes}&redirect_uri=${uri}`;

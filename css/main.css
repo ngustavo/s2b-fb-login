@@ -32,8 +32,10 @@ body {
     color: var(--black);
 }
 
-.text {
+.text,
+a {
     display: inline-block;
+    text-decoration: none;
 }
 .text--light {
     color: var(--light);

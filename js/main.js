@@ -3,11 +3,9 @@ function S2B_FB_LOGIN() {
 
     const initial = document.getElementById("initial");
     const signed = document.getElementById("signed");
-    const error = document.getElementById("error");
 
     const login = document.getElementById("login");
-    const logout = document.getElementById("logout");
-    const trial = document.getElementById("try");
+    const response = document.getElementById("response");
 
     const loginHandler = () => {
 
@@ -20,13 +18,6 @@ function S2B_FB_LOGIN() {
         const url = `${fb}?client_id=${appid}&scope=${scope}&response_type=${type}&redirect_uri=${uri}`;
 
         window.location.href = url;
-
-        // const request = new Request(URL, {
-        //     method: "GET",
-        //     mode: "no-cors"
-        // });
-
-        // fetch(request).then(data => console.log(data));
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");
@@ -48,22 +39,26 @@ function S2B_FB_LOGIN() {
         }
     };
 
-    const logoutHandler = () => {
-        initial.classList.toggle("hide");
-        signed.classList.toggle("hide");
-    };
-
     const getUser = token => {
         const url = `https://graph.facebook.com/me?fields=email,first_name,last_name&access_token=${token}`;
         fetch(url)
         .then( res => res.json() )
-        .then( data => console.log(data) )
+        .then( data => makeUser(data) )
         .catch( err => console.log(err) );
+    };
+
+    const makeUser = data => {
+        const user = {};
+        user.firstName = data.first_name;
+        user.lastName = data.last_name;
+        user.phone = data.phone || data.id;
+        user.email = data.email;
+        response.innerHTML = `firstName, lastName, phone, email
+                        <br>${user.firstName}, ${user.lastName}, ${user.phone}, ${user.email}`;
     };
     
     window.addEventListener("load", loadHandler);
     login.addEventListener("click", loginHandler);
-    logout.addEventListener("click", logoutHandler);
 }
 
 S2B_FB_LOGIN();

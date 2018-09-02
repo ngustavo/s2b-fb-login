@@ -2,7 +2,7 @@
   "name": "s2b-fb-login",
   "private": true,
   "version": "0.0.1",
-  "description": "Implementar acesso a uma aplicação web via login Facebook",
+  "description": "JavaScript application for logging in using Facebook's authentication",
   "scripts": {
     "listen": "serve -l 3000",
     "share": "ssh -R s2b:80:localhost:3000 serveo.net",

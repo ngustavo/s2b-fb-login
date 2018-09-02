@@ -3,13 +3,15 @@
   "private": true,
   "version": "0.0.1",
   "description": "Implementar acesso a uma aplicação web via login Facebook",
-  "main": "server.js",
   "scripts": {
-    "start": "serve"
+    "listen": "serve -l 3000",
+    "share": "ssh -R s2b:80:localhost:3000 serveo.net",
+    "start": "concurrently \"npm:listen\" \"npm:share\""
   },
   "author": "Gustavo N.",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^4.0.1",
     "serve": "^10.0.0"
   },
   "engines": {

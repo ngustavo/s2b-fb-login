@@ -10,14 +10,14 @@ function S2B_FB_LOGIN() {
     const loginHandler = () => {
 
         const fb =  "https://www.facebook.com/v3.1/dialog/oauth";
-        const appid = "275895143136251"; //2034262413570505
+        const appid = "2034262413570505";
         const scope = "email";
         const type = "token";
-        const uri = "https://ngustavo.com/s2b-fb-login/";
+        const uri = window.location.href;
 
-        const url = `${fb}?client_id=${appid}&scope=${scope}&response_type=${type}&redirect_uri=${uri}`;
+        const href = `${fb}?client_id=${appid}&scope=${scope}&response_type=${type}&redirect_uri=${uri}`;
 
-        window.location.href = url;
+        window.location.href = href;
 
         initial.classList.toggle("hide");
         signed.classList.toggle("hide");
@@ -48,14 +48,16 @@ function S2B_FB_LOGIN() {
 
     const makeUser = data => {
         const user = {};
-        user.firstName = data.first_name;
-        user.lastName = data.last_name;
+        user.firstName = data.first_name || "";
+        user.lastName = data.last_name || "";
         if(data.email) // check if you got their email
             if(data.email.includes("@")) // check if it's an actual email
                 user.email = data.email;
             else // if not, it's probably a phone number (check the API)
                 user.phone = user.email;
-        response.innerHTML = `firstName, lastName, phone, email <br>${user.firstName}, ${user.lastName}, ${user.phone}, ${user.email}`;
+        const res = `firstName, lastName, phone, email <br>` +
+            `${user.firstName}, ${user.lastName}, ${user.phone || ""}, ${user.email || ""}`;
+        response.innerHTML = res;
     };
     
     window.addEventListener("load", loadHandler);
